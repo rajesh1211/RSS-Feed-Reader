@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+}
+
+h2{
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sort-form {
+  text-align: center;
+}
+
+table {
+  width: 80%;
+  margin: 50px auto auto auto;
+}
+#input,#output {
+  width: 50%;
+  text-align: center;
+}

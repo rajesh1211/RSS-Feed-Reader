@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sorting Task</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/styles/sorting.css">
+        <script src="./assets/js/sort.js"></script>
+    </head>
+    <body>
+        <h1>Sorting Task</h1>
+
+        <div class="main-container">
+          <h2>Upload the test file for the sorting tests</h2>
+          <form class="sort-form" id="inputForm">
+            <input id="file" type="file" onchange="app.uploadFile()">
+          </form>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Before Sorting
+                </th>
+                <th>
+                  After Sorting
+                </th>
+              </tr>  
+            </thead>
+            <tbody>
+              <tr>  
+                <td id="input">
+                </td>
+                <td id="output">
+                </td>  
+              </tr>
+            </tbody>  
+          </table>  
+        </div>  
+        
+    </body>
+</html>

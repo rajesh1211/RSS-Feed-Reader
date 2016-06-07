@@ -1,135 +1,30 @@
-<!DOCTYPE HTML>
-
-<html ng-app="App">
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="./build/css/styles.css">
-      <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" href="./vendor/icomoon/style.css">
-      <script src="./bower_components/angular/angular.min.js"></script>
-      <script src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
-      <script src="assets/js/app.js"></script>
-      <script src="assets/js/filter.js"></script>
-      <script src="assets/js/controller.js"></script>
-      <script src="assets/js/rssFactory.js"></script>
-      <style>
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
-        }
-      </style>
-  </head>
-  <body ng-controller="base as rss" ng-cloak>
-      <div class="container header-container">
-          <h1> <i class="icon-feed"></i> RSS Feed Reader</h1>
-          <div class="feed-search-wrap">
-            <form name="rssForm" class="rssForm">
-                <div class="form-group">                        
-                  <input 
-                    type="text" 
-                    name="title"
-                    ng-model="rss.rssLink"
-                    class="form-control"
-                  />
-                </div>
-            </form>
-            <button class="btn-blue" ng-click="rss.getFeeds()">
-              Get Feeds  
-            </button>
-          </div>
-          <div class="time-container">
-            <div class="current-time">
-              <label class="time-label">
-                <i class="icon-clock"></i> Current Time
-              </label>
-              : <span>{{rss.currentTime | date : 'h:mm:ss a'}}</span>
-            </div>
-            <div class="time-spent">
-              <label class="time-label">
-                <i class="icon-clock"></i> Time Spent
-              </label>
-              : <span>{{rss.time_spent | timeSpent}}</span>
-            </div>
-          </div>
-      </div>
-      <div class="container">
-          <div class="row">
-              <ul class="col-md-8 col-md-offset-2 feed-list">
-                  <li class="main-feed-title">
-                      <h2>{{rss.feedTitle}}</h2>
-                  </l1>                  
-                  <li ng-if="rss.feeds.length>0" ng-repeat="feed in rss.feeds" class="feed" id="feed{{$index}}" ng-class="rss.hasImage(feed)? '' : 'has-no-image'">
-                      <div class="feed-header">
-                        <div class="feed-header-details">
-                          <a href="javascript:void(0)" ng-click="rss.toggleFeed(feed,$index)" class="feed-title" title="{{feed.title}}">
-                            {{feed.title}}
-                          </a>  
-                          <div class="feed-timestamp">
-                            <i class="icon-clock"></i>
-                            {{feed.publishedDate | date :"MM/dd/yyyy"}}
-                          </div>
-                        </div>
-                        <div class="feed-header-actions">
-                          <span class="feed-header-actions-delete" ng-click="rss.hideFeed(feed,$index)">&#10007;</span>
-                        </div>
-                      </div>
-                      <div class="feed-detail-wrap" id="feedContent{{$index}}">
-                        <div class="feed-image" ng-if="rss.hasImage(feed)" ng-click="rss.showMedia(feed,$index)">
-                          <img src="{{rss.getImage(feed)}}" alt="">
-                        </div>
-                        <div class="feed-desc-block">
-                          <a href="{{feed.link}}" class="feed-link" target="_blank">{{feed.title}}</a>  
-                          <p class="feed-desc" ng-bind-html="feed.content | trusted">
-                          </p>  
-                        </div>
-                      </div>
-                  </li> 
-                  <li class="view-more-container" ng-if="rss.hasMoreFeeds && !rss.fetchingFeeds">
-                    <a href="javascript:void(0)" ng-click="rss.getMoreFeeds()">View More</a>
-                  </li>  
-                  <li class="error-container" ng-if="rss.showError">
-                    Some error has occurred, may be the url you've given is wrong
-                  </li>  
-                  <li ng-if="rss.fetchingFeeds">
-                    <div class="spinner">
-                      <img src="/assets/images/spinner.gif" alt="">
-                    </div>
-                  </li>  
-              </ul>
-          </div>
-      </div>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/styles/main.css">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-  <!-- Modal -->
-  <div class="modal" id="mediaModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close pull-right" ng-click="rss.closeMediaModal()">&#10007;</span>
-          <h4 class="modal-title">{{rss.currentMediaTitle}}</h4>
+        <!-- Add your site or application content here -->
+        <h1>Frontend Developer tasks</h1>
+        <div class="task-list">
+          <a href="/rssFeed.html">RSS task</a><br>
+          <a href="/sorting.html">Sorting task</a>          
         </div>
-        <div class="modal-body">
-          <div class="video-media-container" ng-if="rss.currentMediaType == 'video'">
-            <video width="400" controls>
-              <source src="{{rss.currentMediaUrl | trustedUrl}}" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-blue" ng-click="rss.closeMediaModal()">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+        
+        
+    </body>
 </html>
+
