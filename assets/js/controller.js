@@ -17,19 +17,18 @@ angular.module('App')
 
       setInterval(function() {
         vm.currentTime = new Date();
-        $scope.$apply();
+        $scope.$digest();
       },1000);
 
-      var time_spent = $cookies.get('time_spent');
-
       setInterval(function() {
+        var time_spent = $cookies.get('time_spent');
         if (time_spent) {
           $cookies.put('time_spent',parseInt(time_spent) +1);
         }else{
           $cookies.put('time_spent',1);
         } 
         vm.time_spent = $cookies.get('time_spent');
-        $scope.$apply();
+        $scope.$digest();
       },1000);
     }
     
