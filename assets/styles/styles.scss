@@ -1,0 +1,302 @@
+
+// RESPOND TO MIXIN
+$break-xs: 480px;
+$break-sm: 768px;
+$break-md: 992px;
+$break-lg: 1200px;
+
+$landscape: 'landscape';
+$portrait: 'portrait';
+
+@mixin respond-to($point) {
+  @if $point == xs {
+    @media screen and (max-width : $break-xs ) { @content; }
+  }
+  @else if $point == sm {
+    @media screen and (max-width : $break-sm ) { @content; }
+  }
+  @else if $point == md {
+    @media screen and (max-width : $break-md ) { @content; }
+  }
+  @else if $point == lg {
+    @media screen and (max-width : $break-lg ) { @content; }
+  }
+}
+
+// UTILITIES
+@-webkit-keyframes fadeOut{
+  0%  
+    {
+      opacity:1;
+      transform: translateX(0);
+    }
+  100%
+    {
+      opacity:0;
+      transform: translateX(-100%);
+    }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  >img {
+    width: 100%;   
+  }
+}
+
+// BUTTON
+.btn {
+  border-radius: 4px;
+  box-shadow: 0 1px 1px darken(lightgray,30%);
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+}
+
+.btn-blue {
+  @extend .btn;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  box-shadow: 0 1px 1px darken(#337ab7,30%);
+}
+
+// Feed ICON
+.icon-feed {
+  color: orange;
+  margin-right: 14px;
+}  
+
+
+// MAIN STYLES
+.header-container {
+  position: fixed;
+  left:0;
+  right:0;
+  text-align: center;
+  z-index: 1;
+  background: white;
+
+  .time-container {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 200px;
+    color: lighten(black,30%);
+  
+    .current-time, .time-spent {
+      text-align: left;
+    }
+
+    .time-label {
+      width: 110px;
+      text-align: left;
+    }
+
+    @include respond-to('sm') {
+      position: initial;
+      margin:auto;
+      margin-top: 20px;
+      margin-bottom: 20px; 
+      .current-time, .time-spent {
+        text-align: left;
+      }
+    }
+
+    @include respond-to('md') {
+      position: initial;
+      margin:auto;
+      margin-top: 20px;
+      margin-bottom: 20px; 
+      .current-time, .time-spent {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.feed-search-wrap {
+  text-align: center;
+}
+
+.rssForm {
+  display: inline-block;
+  .form-group {
+    width: 400px;
+    margin-right: 30px;
+    @include respond-to('sm') {
+      width: 100%;
+    }
+  }
+}
+
+.main-feed-title {
+  text-align: center;
+}
+
+.feed-list {
+  list-style: none;
+  margin-top: 150px;
+  @include respond-to('sm') {
+    margin-top: 230px; 
+  }
+
+  @include respond-to('md') {
+    margin-top: 230px; 
+  }
+}
+
+// Feed Styles
+.feed {
+  position: relative;
+  border-bottom: solid 1px lightgray;
+  padding-bottom: 15px; 
+  margin-bottom: 15px; 
+  -webkit-transition: all 2s; /* Safari */
+  -moz-transition:    all 2s; 
+  -ms-transition:     all 2s; 
+  -o-transition:      all 2s; 
+  transition: all 2s;
+
+  &.has-no-image {
+    .feed-image{
+      display: none;
+    }
+
+    .feed-detail-wrap {
+      padding-left: 0;
+    }
+  }
+  
+  &.feed-fadeOut {
+    -webkit-animation: fadeOut .3s linear;
+    -moz-animation:    fadeOut .3s linear;
+    -ms-animation:     fadeOut .3s linear;
+    -o-animation:      fadeOut .3s linear;
+    animation:         fadeOut .3s linear;
+  }
+
+}
+
+.feed-image {
+  position: absolute;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  >img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.feed-detail-wrap {
+  padding-left: 115px;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 2s ease; /* Safari */
+  -moz-transition:    all 2s ease; 
+  -ms-transition:     all 2s ease; 
+  -o-transition:      all 2s ease; 
+  transition: all 2s;
+  &.feed-slideDown {
+    height: auto;
+    max-height: 10000px;
+  }
+}
+
+.feed-header {
+  position: relative;
+  margin-bottom: 10px; 
+}
+
+.feed-title {
+  font-weight: 600;
+  width: 90%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  color: lighten(black,30%);
+  text-decoration: none;
+  
+  &:hover,&:focus,&:visited{
+    color: lighten(black,30%);
+    text-decoration: none;    
+  }
+  
+}
+
+.feed-link{
+  font-weight: normal;
+  width: 90%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
+.feed-timestamp {
+  font-style: italic;
+}
+
+.feed-header-details {
+  padding-right: 100px;
+}
+
+.feed-desc-block {
+  overflow: hidden;
+}
+
+.feed-desc {
+  margin: 0;
+  table>tbody>tr>td {
+    padding: 10px;
+  }
+  @include respond-to('sm') {
+    >p {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.feed-header-actions {
+  position: absolute;
+  right: 0;
+  top:0;
+  .feed-header-actions-delete {
+    cursor: pointer;
+  }
+}
+
+.view-more-container {
+  text-align: center;
+  font-size: 16px; 
+}
+
+.error-container {
+  text-align: center;
+  color:red;
+}
+// FEED STYLES END
+
+
+// MODAL
+.modal {
+  background: rgba(0,0,0,.6);
+
+  .close {
+    cursor: pointer;
+  }
+  .video-media-container {
+    text-align: center; 
+  }
+}
