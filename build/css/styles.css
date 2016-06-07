@@ -199,6 +199,12 @@
 
 .modal {
   background: rgba(0, 0, 0, 0.6); }
+  .modal .modal-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 75%; }
   .modal .close {
     cursor: pointer; }
   .modal .video-media-container {

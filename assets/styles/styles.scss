@@ -293,6 +293,14 @@ $portrait: 'portrait';
 .modal {
   background: rgba(0,0,0,.6);
 
+  .modal-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 75%;
+  }
+
   .close {
     cursor: pointer;
   }

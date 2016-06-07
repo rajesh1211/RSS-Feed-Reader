@@ -36,6 +36,7 @@ angular.module('App')
     /* code to fetch the feeds */
     vm.fetchingFeeds = false;
     var fetchFeeds = function () {
+      vm.showError = false;
       if (!vm.fetchingFeeds) {
         vm.fetchingFeeds = true;
         var params = {
