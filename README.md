@@ -1,8 +1,4 @@
-# Task
-Task for frontend developer position.
-To directly see the demo visit: http://rajesh1211.github.io/Task
-
-## Task 1 : RSS Feed Reader
+# RSS Feed Reader
 RSS Feed reader is a simple responsive feed reader where you add a feed url in the input and get the latest rss feeds from your favourite site
 ### Sample RSS feed links:
   1. https://www.ted.com/talks/rss
@@ -22,13 +18,3 @@ RSS Feed reader is a simple responsive feed reader where you add a feed url in t
   2. Sass
   3. Customized bootstrap (grid)
   4. Gulp for task management
-
-
-## Task 2 :Sorting of Strings
-Its the implementation of quicksort to sort the string according to their lengths
-
-### How to use it:
-  1. Upload a file containing the text strings seperated by carriage return
-  2. First String in the file would the numbers of strings to be sorted
-  3. For reference you can check the format of the file as tests.txt in assets folder
-  4. After uploading the algorithm will return you the results at the same page
